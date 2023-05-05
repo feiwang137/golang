@@ -19,6 +19,8 @@ func main()  {
 	//fmt.Println(*name)
 
 	DoOperation(1, increase)
+	xx,yy := anonFunc(1111,2222)
+	fmt.Println(xx,yy)
 
 }
 
@@ -32,6 +34,7 @@ func init()  {
 	fmt.Println(name," lucky number is ",LuckyNum)
 	newNewSlice := append(newSlice, 1,2,3,4,5)
 	fmt.Println(newNewSlice)
+
 
 }
 
@@ -50,4 +53,21 @@ func DoOperation(y int, f func(int, int)){
 }
 
 
+// 闭包，匿名函数
 
+func anonFunc(x,y int)(a,b int){
+	num := func(){fmt.Println("fuck1111")}
+	func(x,y int) {println("x is",x, "y is ",y)}(1,2)
+
+	//num()
+	//num1(1,2)
+	//num := func(x,y int){println(x+y)}(1,2)
+	fmt.Printf("num is:",num)
+	a = x
+	b = y
+	return x,y
+
+}
+
+
+// method name,看不懂了
