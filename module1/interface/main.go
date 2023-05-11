@@ -39,6 +39,8 @@ func main()  {
 	h := new(Human)
 	h.firstName="li"
 	h.lastName="si"
+	fmt.Println("2023")
+	h.getName()
 	interfaces = append(interfaces, h)
 
 	p := new(plane)
@@ -66,7 +68,6 @@ func main()  {
 剩余学习点：
 1.反射 reflect
 2.json编解码
-3.错误处理
 
  */
 
