@@ -71,3 +71,6 @@ func anonFunc(x,y int)(a,b int){
 
 
 // method name,看不懂了
+
+
+
