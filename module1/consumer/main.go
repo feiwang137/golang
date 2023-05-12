@@ -154,12 +154,16 @@ func main()  {
 
 	// consumer
 	go func(){
-		ticker := time.NewTicker(1 * time.Second)
+		ticker := time.NewTicker(1 * time.Second)  // 这是一个节拍器
+		timer := time.NewTimer(1* time.Second)
+
 		for _ = range ticker.C{
 			select {
-				case <- done:
+				case <- done:  //从channel中接受到了数据，整个分支就会被触发执行。
 					fmt.Println("child process is interrupt...")
 					return
+				case <- timer.C:
+					fmt.Println("waiting...")
 				default:
 					fmt.Printf("send messages:%d \n", <-ch1)
 					//fmt.Println(<-done)
@@ -167,15 +171,15 @@ func main()  {
 		}
 	}()
 
-
 	// producer
 	for i:=0;i<10;i++{
 		ch1 <- i
-		//time.Sleep(1 * time.Second)
+		//time.Sleep(10 * time.Second)
 	}
 
 	time.Sleep(5 * time.Second) // 这里等待5s是为了，让consumer消费
 	close(done)  // 关闭done channel，select会捕捉到done关闭了。
+
 	time.Sleep(1 * time.Second)  // 这里决赛点，如果CPU先调度运行了主进程 main process 将退出，
 	fmt.Println("main process exit!")
 
