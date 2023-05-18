@@ -17,9 +17,11 @@ func fmtPrintMsg()  {
 		fmt.Println("defer func is called")
 		if err:= recover(); err != nil{  // 从错误中回复
 			fmt.Println(err)
+		} else {
+			//fmt.Println("continue...")
 		}
 	}()
-	panic("a panic is triggered")  // 直接crash当前的进程，后面的代码就不会执行了。
+	//panic("a panic is triggered")  // 直接crash当前的进程，后面的代码就不会执行了。
 	fmt.Println("egg...")
 
 }
