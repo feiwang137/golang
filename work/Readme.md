@@ -1,5 +1,16 @@
 # 模块三作业
 
+[Dockerfile文件](./Dockerfile)
+
+[Makefile文件](./Makefile)
+
+作业说明：
+1. 通过make命令构建、发布、启动容器。
+2. httpServer镜像说明。
+   - 使用alpine基础镜像，减少磁盘存储占用
+   - 使用nobody用户运行httpServer
+
+
 ## 将 httpServer 应用容器化
 
 ```
